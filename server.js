@@ -20,7 +20,11 @@ app.use(session({
     saveUninitialized:true
 }));
 
+<<<<<<< HEAD
 mongoose.connect('mongodb://127.0.0.1:27017/Office');
+=======
+mongoose.connect('');
+>>>>>>> 2c6ec3cd3bd0ae60cade169d58457fd0ddb0254e
 
 const User= mongoose.model('user',{
     uname:String,
