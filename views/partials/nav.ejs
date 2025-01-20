@@ -1,0 +1,21 @@
+    <div class="top">
+        <img src="/images/logo.png" alt="" class="logo">
+        <h2 class="mt-5">Create your stories...</h2>
+        <% if (typeof(logname) !== 'undefined') { %>
+            <p class="mt-5">Welcome <%= logname %>!!!,<a href="/logout">Logout</a>
+            </p>
+        <% } else { %>
+            <p class="mt-5 ml-5">Welcome Guest!!!</p>
+        <% } %>
+    </div>
+    <nav class="navBar">
+        <a href="/home">Home</a>
+        <% if (pages && pages.length > 0) { %>
+            <% pages.forEach(page => { %>
+                <a href="/page/<%= page.slug %>"><%= page.title %></a>
+            <% }); %>
+        <% } %>
+            <!-- Show Login if the user is logged out -->
+            <a href="/login">Login</a>
+    </nav>
+

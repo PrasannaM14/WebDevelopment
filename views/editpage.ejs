@@ -1,0 +1,46 @@
+<%- include('partials/header') %>
+<%- include('partials/nav2') %>
+
+<div class="container">
+    <h2 class="text-center">Manage Pages</h2>
+    <table class="table">
+        <thead>
+            <tr class="text-center">
+                <th>Page Title</th>
+                <th>Image</th>
+                <th>Content</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (pages && pages.length > 0) { %>
+                <% pages.forEach(page => { %>
+                    <tr  class="text-center">
+                        <td><%= page.title %></td>
+                        <td>
+                            <% if (page.img) { %>
+                                <img src="/<%= page.img %>" alt="Hero Image" style="width: 100px;">
+                            <% } else { %>
+                                No Image
+                            <% } %>
+                        </td>
+                        <td><%= page.tar.substring(0, 50) %>...</td>
+                        <td>
+                            <a href="/editpage/<%= page.slug%>" class="btn btn-primary">Edit</a>
+                            <a href="/deletepage/<%= page.slug %>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this page?')">Delete</a>
+                        </td>
+                    </tr>
+                <% }); %>
+            <% } else { %>
+                <tr>
+                    <td colspan="4">No pages found</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <div class="text-center">
+    <a href="/addpage" class="btn btn-success">Add New Page</a>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

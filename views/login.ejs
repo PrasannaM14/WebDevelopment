@@ -1,0 +1,44 @@
+<%
+    var uerr='';
+    var paserr='';
+    var logerr='';
+
+    if(typeof(errors)!='undefined'){
+        for(var err of errors){
+            switch(err.path){
+                case 'uname':
+                        uerr = err.msg;
+                        break;
+                case 'pwd':
+                        paserr= err.msg;
+                        break;
+                case 'LOGERR':
+                        logerr= err.msg;
+            }
+        }
+    }
+%>
+<%- include('partials/header')%>
+<%- include('partials/nav')%>
+<div class="loginContainer">
+    <form action="/login" method="post">
+        <h1>Login</h1>
+        <div class="fields">
+            <label for="">Username: </label>
+            <input type="text" name="uname">
+            
+        </div>
+        
+        <div class="fields">
+            <label for="">Password: </label>
+            <input type="password" name="pwd">
+        </div>
+        <div>
+            <p class="errmsg"><%=uerr%></p>
+            <p class="errmsg"><%=paserr%></p>
+            <p class="errmsg"><%=logerr%></p>
+        </div>
+        <input type="submit" value="Login">
+    </form>
+</div>
+<%- include('partials/footer')%>

@@ -1,0 +1,11 @@
+<%- include('partials/header')%>
+<%- include('partials/nav2')%>
+<div class="text-center mt-2">
+    <% if (typeof heading !== 'undefined' && heading && typeof message !== 'undefined' && message) { %>
+        <div class="alert alert-info" role="alert">
+            <h4 class="alert-heading"><%= heading %></h4>
+            <p><%= message %></p>
+        </div>
+    <% } %>
+</div>
+<%- include('partials/footer')%>

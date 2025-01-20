@@ -1,0 +1,89 @@
+body{
+    background-color: antiquewhite;
+}
+.cont{
+    width: 80%;
+    margin: auto;
+    padding: 0px;
+}
+.logo{
+    width: 100px;
+    height: 100px;
+    vertical-align: middle;
+}
+.top{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+.navBar{
+    background-color:#3A405A;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+}
+.navBar a{
+    text-decoration: none;
+    color: white;
+    margin: 0px 10px;
+}
+footer{
+    padding: 5px;
+    width: 100%;
+    color: white;
+    background-color: #99B2DD;
+
+    margin-top: 10px;
+    text-align: center;
+}
+footer p{
+    margin: 0px;
+}
+.loginContainer{
+    margin: auto;
+    width: 350px;
+    padding: 10px;
+    text-align: center;
+}
+.fields{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.fields+input{
+   margin: auto;
+    background-color: cornflowerblue;
+    color: white;
+    display: inline-block;
+    width: 150px;
+    border: 0px;
+    padding: 5px;
+}
+.form-group {
+    display: flex;
+    align-items: center;
+}
+
+.form-group label {
+    margin-right: 10px; /* Space between label and input */
+    width: 150px; /* Adjust width for label */
+}
+
+.form-group .form-control {
+    flex: 1; /* Make input take up remaining space */
+}
+
+form .errmsg{
+    color:red;
+    margin:0px;
+    padding:0px;
+}
+
+h1{
+    text-align: center;
+}
+
+.table, .table tr, .table th, .table td{
+    border: 2px solid black;
+    border-collapse: collapse;
+}

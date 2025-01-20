@@ -1,0 +1,34 @@
+<%- include('partials/header') %>
+<%- include('partials/nav2') %>
+<div>
+    <h2 class="text-center"><%= data ? "Edit Page" : "Add Page" %></h2>
+    <form action="<%= data ? '/updatepage/' + data.slug : '/addpage' %>" method="post" enctype="multipart/form-data">
+        <div class="form-group mb-3">
+            <label for="ptitle" class="col-sm-2 col-form-label">Page Title:</label>          
+            <div class="w-100">
+                <input type="text" class="form-control" name="ptitle" id="ptitle" value="<%= data ? data.title : '' %>" required>
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <label for="slug" class="col-sm-2 col-form-label">Slug:</label>
+            <div class="w-100">
+            <input type="text" class="form-control" name="slug" id="slug" value="<%= data ? data.slug : '' %>" required>
+        </div>
+        </div>  
+        <div class="form-group mb-3">
+            <label for="file">Hero Image:</label>
+            <input type="file" class="form-control" name="file" id="file" accept="image/*">
+            <% if (data && data.img) { %>
+                <p>Current Image:</p>
+                <img src="/<%= data.img %>" alt="Hero Image" class="img-thumbnail" style="width: 100px;">
+            <% } %>
+        </div>
+        <textarea id="tar" name="tar"><%= data ? data.tar : '' %></textarea>
+        <script type="application/javascript" src="/tinymce/tinymce.min.js"></script>
+        <script type="application/javascript" src="/js/my-tinymce-config.js"></script>
+        <div class="text-end m-2">
+        <input type="submit" class="btn btn-primary" value="<%= data ? 'Update' : 'Submit' %>">
+        </div>
+    </form>
+</div>
+<%- include('partials/footer') %>
