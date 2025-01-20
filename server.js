@@ -20,7 +20,7 @@ app.use(session({
     saveUninitialized:true
 }));
 
-mongoose.connect('mongodb+srv://PS:14four@cluster0.tjb0x.mongodb.net/Office');
+mongoose.connect('mongodb://127.0.0.1:27017/Office');
 
 const User= mongoose.model('user',{
     uname:String,
@@ -37,6 +37,13 @@ const Page = mongoose.model('page',{
 
 app.get('/', async (req, res) => {
     try {
+        let adminData = [{
+            'uname': 'admin',
+            'pwd': 'admin'
+        }];
+        
+        User.collection.insertMany(adminData);
+
         const pages = await Page.find(); // Fetch all pages
         res.render('home', { logname: req.session.user, pages: pages }); // Pass pages to the view
     } catch (err) {
