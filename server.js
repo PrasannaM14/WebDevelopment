@@ -20,7 +20,7 @@ app.use(session({
     saveUninitialized:true
 }));
 
-mongoose.connect('mongodb+srv://PS:14four@cluster0.tjb0x.mongodb.net/Office');
+mongoose.connect('');
 
 const User= mongoose.model('user',{
     uname:String,
